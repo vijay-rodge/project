@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthMate - Disease Awareness</title>
+    
+</head>
+<body>
+    <header>
+        <h1>🩺 HealthMate</h1>
+        <p>Your guide to understanding common illnesses and over-the-counter remedies.</p>
+        <input type="text" id="searchBar" placeholder="Search a disease..." onkeyup="filterDiseases()">
+    </header>
+    <section id="awareness" style="padding: 30px; background-color: #f0f8ff; border-radius: 10px; margin: 20px;">
+  <h2 style="text-align: center; color: #007BFF;">Why Health Awareness Matters</h2>
+  <p id="awareness-text" style="font-size: 18px; line-height: 1.6; text-align: justify; max-width: 900px; margin: auto;">
+    Staying informed about common diseases and their symptoms is the first step toward a healthier life. 
+    Many health conditions can be easily prevented or managed with early awareness and timely action. 
+    <span id="more-text" style="display: none;">
+      This website is designed to help individuals recognize early signs of illness, understand the causes and prevention methods, 
+      and explore commonly suggested treatments. Our goal is to promote health education and empower everyone with 
+      the knowledge they need to take control of their well-being. Consistent healthcare awareness not only improves personal health, 
+      but also strengthens community resilience against outbreaks and long-term health risks.
+    </span>
+  </p>
+  <div style="text-align: center; margin-top: 15px;">
+    <button onclick="toggleAwarenessText()" style="padding: 10px 20px; font-size: 16px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
+      Read More
+    </button>
+  </div>
+</section>
+
+
+    <main id="diseaseContainer">
+        <div class="card" onclick="showDisease('dengue')">
+            <h2>Dengue</h2>
+            <p>Symptoms: Fever, joint pain, headache</p>
+        </div>
+        <div class="card" onclick="showDisease('anxiety')">
+    <h2>Anxiety</h2>
+    <p>Symptoms: Nervousness, sweating</p>
+        </div>
+
+        <div class="card" onclick="showDisease('cold')">
+            <h2>Common Cold</h2>
+            <p>Symptoms: Sneezing, sore throat, runny nose</p>
+        </div>
+        <div class="card" onclick="showDisease('acidity')">
+            <h2>Acidity</h2>
+            <p>Symptoms: Heartburn, nausea, bloating</p>
+        </div>
+        <div class="card" onclick="showDisease('malaria')">
+    <h2>Malaria</h2>
+    <p>Symptoms: Chills, fever, sweating</p>
+</div>
+<div class="card" onclick="showDisease('typhoid')">
+    <h2>Typhoid</h2>
+    <p>Symptoms: Fever, weakness, stomach pain</p>
+</div>
+<div class="card" onclick="showDisease('covid')">
+    <h2>COVID-19</h2>
+    <p>Symptoms: Fever, cough, breathlessness</p>
+</div>
+<div class="card" onclick="showDisease('asthma')">
+    <h2>Asthma</h2>
+    <p>Symptoms: Wheezing, short breath, cough</p>
+</div>
+<div class="card" onclick="showDisease('diabetes')">
+    <h2>Diabetes</h2>
+    <p>Symptoms: Frequent urination, fatigue, thirst</p>
+</div>
+<div class="card" onclick="showDisease('hypertension')">
+    <h2>Hypertension</h2>
+    <p>Symptoms: Headache, dizziness, blurred vision</p>
+</div>
+<div class="card" onclick="showDisease('allergy')">
+    <h2>Allergies</h2>
+    <p>Symptoms: Sneezing, itching, rash</p>
+</div>
+<div class="card" onclick="showDisease('anemia')">
+    <h2>Anemia</h2>
+    <p>Symptoms: Fatigue, pale skin, weakness</p>
+</div>
+<div class="card" onclick="showDisease('jaundice')">
+    <h2>Jaundice</h2>
+    <p>Symptoms: Yellow eyes/skin, nausea, fatigue</p>
+</div>
+<div class="card" onclick="showDisease('depression')">
+    <h2>Depression</h2>
+    <p>Symptoms: Sadness, sleep change, tiredness</p>
+</div>
+<div class="card" onclick="showDisease('pneumonia')">
+    <h2>Pneumonia</h2>
+    <p>Symptoms: Chest pain, cough, fever</p>
+</div>
+<div class="card" onclick="showDisease('skin')">
+    <h2>Skin Infection</h2>
+    <p>Symptoms: Redness, swelling, itching</p>
+</div>
+<div class="card" onclick="showDisease('migraine')">
+    <h2>Migraine</h2>
+    <p>Symptoms: Intense headache, nausea, light sensitivity</p>
+</div>
+<div class="card" onclick="showDisease('chickenpox')">
+    <h2>Chickenpox</h2>
+    <p>Symptoms: Itchy rashes, fever, tiredness</p>
+</div>
+<div class="card" onclick="showDisease('tb')">
+    <h2>Tuberculosis</h2>
+    <p>Symptoms: Persistent cough, weight loss, fever</p>
+</div>
+<div class="card" onclick="showDisease('flu')">
+    <h2>Influenza (Flu)</h2>
+    <p>Symptoms: Fever, chills, muscle aches</p>
+</div>
+<div class="card" onclick="showDisease('ulcer')">
+    <h2>Stomach Ulcer</h2>
+    <p>Symptoms: Stomach pain, bloating, nausea</p>
+</div>
+<div class="card" onclick="showDisease('thyroid')">
+    <h2>Thyroid</h2>
+    <p>Symptoms: Weight change, fatigue, hair loss</p>
+</div>
+<div class="card" onclick="showDisease('sinus')">
+    <h2>Sinusitis</h2>
+    <p>Symptoms: Headache, nasal congestion, face pain</p>
+</div>
+<div class="card" onclick="showDisease('arthritis')">
+    <h2>Arthritis</h2>
+    <p>Symptoms: Joint pain, stiffness</p>
+</div>
+<div class="card" onclick="showDisease('eczema')">
+    <h2>Eczema</h2>
+    <p>Symptoms: Dry, itchy skin</p>
+</div>
+<div class="card" onclick="showDisease('psoriasis')">
+    <h2>Psoriasis</h2>
+    <p>Symptoms: Scaly skin patches</p>
+</div>
+<div class="card" onclick="showDisease('hepatitis')">
+    <h2>Hepatitis B</h2>
+    <p>Symptoms: Yellow skin, liver pain</p>
+</div>
+
+    </main>
+
+    <section id="diseaseDetails" class="hidden">
+        <button onclick="goBack()">🔙 Go Back</button>
+        <div id="detailsContent"></div>
+    </section>
+
+    
+    
+</body>
+</html>
+<br>
+<br>
+<br>
+<br>
+<footer style="background-color: #007BFF; color: white; text-align: center; padding: 8px 5px; font-size: 13px; margin-top: 20px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+    <p style="margin: 4px;">Site made by Vijay © 2025. All rights reserved by <strong>HealthMate.in</strong></p>
+    <p style="margin: 4px;">
+        📧 <a href="mailto:rodgevijay1@gmail.com" style="color: #fff; text-decoration: none;">rodgevijay1@gmail.com</a> |
+        💼 <a href="https://www.linkedin.com/in/vijay-rodge-988a782ab" target="_blank" style="color: #fff; text-decoration: none;">LinkedIn</a> |
+        💻 <a href="https://github.com/vijay-rodge" target="_blank" style="color: #fff; text-decoration: none;">GitHub</a>
+    </p>
+</footer>
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #007B8A;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+header input {
+    margin-top: 10px;
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 15px;
+    padding: 20px;
+    width: 250px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: #e3f8f9;
+}
+
+.hidden {
+    display: none;
+}
+
+#diseaseDetails {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #5de9ff;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+</style>
+<script>
+const diseaseData = {
+
+    dengue: {
+        name: "Dengue",
+        symptoms: "Fever, joint pain, headache, skin rash",
+        cause: "Mosquito bites (Aedes aegypti)",
+        prevention: "Avoid mosquito-prone areas, wear full sleeves",
+        medicines: "Paracetamol (Avoid aspirin/ibuprofen)"
+    },
+    anxiety: {
+        name: "Anxiety",
+        symptoms: "Worry, nervousness, fast heartbeat",
+        cause: "Stress, trauma, chemical imbalance",
+        prevention: "Meditation, stress management",
+        medicine: "Anxiolytics, therapy"
+    },
+    cold: {
+        name: "Common Cold",
+        symptoms: "Sneezing, sore throat, runny nose, cough",
+        cause: "Viral infection (rhinovirus)",
+        prevention: "Wash hands frequently, avoid contact with sick people",
+        medicines: "Cetirizine, Paracetamol, Steam inhalation"
+    },
+    acidity: {
+        name: "Acidity",
+        symptoms: "Heartburn, bloating, nausea",
+        cause: "Spicy food, stress, irregular eating",
+        prevention: "Avoid spicy/fried food, eat on time",
+        medicines: "Antacids like Gelusil, Eno, Pantoprazole"
+    },
+    malaria: {
+        name: "Malaria",
+        symptoms: "Chills, fever, sweating",
+        cause: "Plasmodium parasite via mosquito bite",
+        prevention: "Mosquito nets, repellents",
+        medicines: "Chloroquine, Artesunate (consult doctor)"
+    },
+    typhoid: {
+        name: "Typhoid",
+        symptoms: "Fever, weakness, stomach pain",
+        cause: "Contaminated food/water (Salmonella typhi)",
+        prevention: "Boiled water, hygienic food",
+        medicines: "Ciprofloxacin, Azithromycin (doctor prescribed)"
+    },
+    covid: {
+        name: "COVID-19",
+        symptoms: "Fever, dry cough, breathlessness",
+        cause: "Coronavirus (SARS-CoV-2)",
+        prevention: "Masks, sanitizers, vaccination",
+        medicines: "Paracetamol, multivitamins, isolation"
+    },
+    asthma: {
+        name: "Asthma",
+        symptoms: "Wheezing, breathlessness, chest tightness",
+        cause: "Allergens, smoke, pollution",
+        prevention: "Avoid triggers, inhaler use",
+        medicines: "Salbutamol inhaler, corticosteroids"
+    },
+    diabetes: {
+        name: "Diabetes",
+        symptoms: "Frequent urination, fatigue, thirst",
+        cause: "Insulin imbalance",
+        prevention: "Healthy diet, regular check-ups",
+        medicines: "Metformin, insulin (consult doctor)"
+    },
+    hypertension: {
+        name: "Hypertension",
+        symptoms: "Headache, dizziness, blurry vision",
+        cause: "Stress, obesity, genetics",
+        prevention: "Low-salt diet, regular exercise",
+        medicines: "Amlodipine, Losartan (doctor prescribed)"
+    },
+    allergy: {
+        name: "Allergies",
+        symptoms: "Sneezing, itching, rash",
+        cause: "Dust, food, pollen",
+        prevention: "Avoid allergens",
+        medicines: "Antihistamines like cetirizine"
+    },
+    anemia: {
+        name: "Anemia",
+        symptoms: "Fatigue, pale skin, weakness",
+        cause: "Iron or vitamin deficiency",
+        prevention: "Iron-rich food",
+        medicines: "Iron supplements, folic acid tablets"
+    },
+    jaundice: {
+        name: "Jaundice",
+        symptoms: "Yellow skin/eyes, fatigue, nausea",
+        cause: "Liver infection or damage",
+        prevention: "Avoid contaminated food/alcohol",
+        medicines: "Rest, fluids, liver tonics (doctor advised)"
+    },
+    depression: {
+        name: "Depression",
+        symptoms: "Sadness, loss of interest, tiredness",
+        cause: "Mental stress, trauma, chemical imbalance",
+        prevention: "Therapy, support systems",
+        medicines: "Antidepressants (only with prescription)"
+    },
+    pneumonia: {
+        name: "Pneumonia",
+        symptoms: "Chest pain, cough, fever, chills",
+        cause: "Bacterial/viral infection",
+        prevention: "Vaccination, hygiene",
+        medicines: "Antibiotics like azithromycin (prescribed)"
+    },
+    skin: {
+        name: "Skin Infection",
+        symptoms: "Redness, swelling, itching, pain",
+        cause: "Bacteria/fungi contact",
+        prevention: "Clean skin, avoid sharing personal items",
+        medicines: "Antifungal creams, antibiotics (topical)"
+    },
+    migraine: {
+        name: "Migraine",
+        symptoms: "Severe headache, nausea, light sensitivity",
+        cause: "Stress, lack of sleep, genetics",
+        prevention: "Avoid triggers, maintain sleep cycle",
+        medicines: "Paracetamol, Sumatriptan (for migraine)"
+    },
+    chickenpox: {
+        name: "Chickenpox",
+        symptoms: "Itchy blisters, fever, fatigue",
+        cause: "Varicella-zoster virus",
+        prevention: "Vaccination, hygiene",
+        medicines: "Calamine lotion, paracetamol (not aspirin)"
+    },
+    tb: {
+        name: "Tuberculosis",
+        symptoms: "Persistent cough, night sweats, weight loss",
+        cause: "Mycobacterium tuberculosis",
+        prevention: "BCG vaccine, avoid contact with TB patients",
+        medicines: "Rifampicin, Isoniazid (DOTS therapy)"
+    },
+    flu: {
+        name: "Influenza (Flu)",
+        symptoms: "Fever, chills, muscle aches, sore throat",
+        cause: "Influenza virus",
+        prevention: "Flu vaccine, hand washing",
+        medicines: "Rest, fluids, paracetamol, antivirals (if needed)"
+    },
+    ulcer: {
+        name: "Stomach Ulcer",
+        symptoms: "Stomach pain, bloating, nausea",
+        cause: "H. pylori bacteria, NSAIDs",
+        prevention: "Avoid spicy food, stress management",
+        medicines: "Antacids, omeprazole, antibiotics (H. pylori)"
+    },
+    thyroid: {
+        name: "Thyroid Disorder",
+        symptoms: "Fatigue, weight changes, hair loss",
+        cause: "Imbalanced thyroid hormone (hypo/hyper)",
+        prevention: "Regular screening",
+        medicines: "Levothyroxine (hypo), Carbimazole (hyper)"
+    },
+    sinus: {
+        name: "Sinusitis",
+        symptoms: "Headache, nasal congestion, face pain",
+        cause: "Infection/inflammation of sinuses",
+        prevention: "Steam inhalation, stay hydrated",
+        medicines: "Decongestants, saline sprays, antihistamines"
+    },
+    arthritis: {
+        name: "Arthritis",
+        symptoms: "Joint stiffness, pain, swelling",
+        cause: "Inflammation or wear and tear",
+        prevention: "Exercise, healthy weight",
+        medicine: "NSAIDs, corticosteroids"
+    },
+    eczema: {
+        name: "Eczema",
+        symptoms: "Dry, red, itchy skin",
+        cause: "Overactive immune response",
+        prevention: "Moisturize, avoid triggers",
+        medicine: "Steroids, antihistamines"
+    },
+    psoriasis: {
+        name: "Psoriasis",
+        symptoms: "Scaly skin, itchiness, plaques",
+        cause: "Autoimmune disorder",
+        prevention: "Avoid alcohol, reduce stress",
+        medicine: "Topical creams, UV therapy"
+    },
+    hepatitis: {
+        name: "Hepatitis B",
+        symptoms: "Liver pain, fatigue, jaundice",
+        cause: "Hepatitis B virus",
+        prevention: "Vaccination, safe practices",
+        medicine: "Antivirals like tenofovir"
+    }
+};
+
+function showDisease(key) {
+    const data = diseaseData[key];
+    const details = `
+        <h2>${data.name}</h2>
+        <p><strong>Symptoms:</strong> ${data.symptoms}</p>
+        <p><strong>Cause:</strong> ${data.cause}</p>
+        <p><strong>Prevention:</strong> ${data.prevention}</p>
+        <p><strong>Suggested Medicines:</strong> ${data.medicines}</p>
+    `;
+    document.getElementById("detailsContent").innerHTML = details;
+    document.getElementById("diseaseContainer").classList.add("hidden");
+    document.getElementById("diseaseDetails").classList.remove("hidden");
+}
+
+function goBack() {
+    document.getElementById("diseaseDetails").classList.add("hidden");
+    document.getElementById("diseaseContainer").classList.remove("hidden");
+}
+
+function filterDiseases() {
+    const input = document.getElementById("searchBar").value.toLowerCase();
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+        const title = card.querySelector("h2").textContent.toLowerCase();
+        card.style.display = title.includes(input) ? "block" : "none";
+    });
+}
+function toggleAwarenessText() {
+  const moreText = document.getElementById("more-text");
+  const button = event.target;
+  if (moreText.style.display === "none") {
+    moreText.style.display = "inline";
+    button.textContent = "Read Less";
+  } else {
+    moreText.style.display = "none";
+    button.textContent = "Read More";
+  }
+}
+
+
+</script>
+
+
